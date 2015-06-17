@@ -10,7 +10,7 @@ describe Board do
   end
 
   it 'reports missed hit when no ship at position' do
-    expect(subject.strike "A1").to eq 'Missed hit'
+    expect(subject.strike "A1").to eq 'Missed'
   end
 
   it 'can receive a hit on a ship' do
@@ -18,4 +18,6 @@ describe Board do
     subject.place ship
     expect(subject.strike "A1").to eq 'Hit'
   end
+
+
 end

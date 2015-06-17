@@ -13,7 +13,7 @@ class Board
   end
 
   def strike position
-    (@ship_array.collect{|x| x.position}.include?(position)) ? "Hit" : "Missed hit"
+    (@ship_array.collect{|x| x.position}.include?(position)) ? "Hit" : "Missed"
   end
 
 
