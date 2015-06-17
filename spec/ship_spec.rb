@@ -15,4 +15,7 @@ describe Ship do
     expect(@ship.hit_counter).to eq 1
   end
 
+  it 'can have a size' do
+    expect(@ship.size 1).to eq 1
+  end
 end
