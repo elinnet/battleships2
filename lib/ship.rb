@@ -1,24 +1,20 @@
 
 class Ship
 
-  attr_accessor :position, :status
+  attr_accessor :position, :hit_counter
 
   def initialize position
     @position = position
-    @damaged = false
+    @hit_counter = 0
   end
-
-  # def hit
-  #   @status=true
-  # end
 
   def hit
-    @damaged  = true
+    @hit_counter += 1
   end
 
-  def hit?
-    @damaged
-  end
+
+
+
 
 
 

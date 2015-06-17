@@ -10,9 +10,9 @@ describe Ship do
     expect(@ship.position).to eq "A1"
   end
 
-  it 'can be hit' do
+  it 'records number of hits' do
     @ship.hit
-    expect(@ship.hit?).to be true
+    expect(@ship.hit_counter).to eq 1
   end
 
 end
