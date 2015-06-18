@@ -28,6 +28,15 @@ class Board
     return "Missed"
   end
 
+  def ships_sunk?
+
+    ship_array.each do |ship|
+      return false if !ship.destroyed?
+    end
+
+    true
+  end
+
   private
 
   def strike_list
