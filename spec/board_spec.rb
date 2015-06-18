@@ -16,24 +16,17 @@ describe Board do
   end
 
   it 'reports missed hit when no ship at position' do
-    expect(subject.strike "A2").to eq 'Missed'
+    expect(subject.receive_hit "A2").to eq 'Missed'
   end
 
   it 'can receive a hit on a ship' do
+    allow(ship).to receive :destroyed? 
     expect(ship).to receive :hit
-    subject.strike "A1"
-  end
-
-  describe 'strike should' do
-    it 'not allow stike in same position twice' do
-      allow(ship).to receive :hit 
-      subject.strike "A1"
-      expect{subject.strike "A1"}.to raise_error "position already struck"
-    end
+    subject.receive_hit "A1"
   end
 
   it 'can report when all ships are sunk' do
-    allow(ship).to receive(:destroyed?) {true}
+    allow(ship).to receive(:sunk) {true}
     expect(subject).to be_ships_sunk
 
   end

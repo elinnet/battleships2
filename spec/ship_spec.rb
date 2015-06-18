@@ -18,11 +18,12 @@ describe Ship do
 
   it 'can be sunk' do
     subject.hit
-    expect(subject).to be_destroyed
+    subject.destroyed?
+    expect(subject.sunk).to eq true
   end
 
   it 'is not sunk initially' do
-    expect(subject).not_to be_destroyed
+    expect(subject.sunk).to eq false
   end
 end
 
