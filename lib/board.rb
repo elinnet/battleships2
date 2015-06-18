@@ -2,10 +2,12 @@ require_relative 'ship'
 
 class Board
 
-  attr_accessor :ship_array
+  attr_reader :ship_array
 
   def initialize
     @ship_array = []
+    @hits = []
+    @misses = []
   end
 
   def place ship
@@ -13,14 +15,28 @@ class Board
   end
 
   def strike position #how to make board to ship counter
+    raise "position already struck" if strike_list.include? position
+
     @ship_array.each do |ship|
       if ship.position == position
         ship.hit
+        @hits << position
         return "Hit"
       end
     end
-    "Missed"
+    @misses << position
+    return "Missed"
   end
+
+  private
+
+  def strike_list
+    @hits + @misses
+
+  end
+
+
+
 
 
 end
