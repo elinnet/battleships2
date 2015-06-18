@@ -16,8 +16,15 @@ describe Board do
   it 'can receive a hit on a ship' do
     ship = double :ship, position: "A1"
     subject.place ship
+    allow(ship).to receive :hit
     expect(subject.strike "A1").to eq 'Hit'
   end
+# when ship in square, expect ship to recieve a hit
 
-
+  it 'hits a ship in a specified location if there is one' do
+    ship = double :ship, position: "A1"
+    subject.place ship
+    expect(ship).to receive :hit
+    subject.strike "A1"    
+  end
 end

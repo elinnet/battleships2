@@ -16,4 +16,12 @@ class Ship
   def size size
     @size = size
   end
+
+  # def destroyed
+  #   @hit_counter == @size ? true : false
+  # /end
+
+  def destroyed?
+   @hit_counter == @size
+  end
 end

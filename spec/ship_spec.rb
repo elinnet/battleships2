@@ -18,4 +18,16 @@ describe Ship do
   it 'can have a size' do
     expect(@ship.size 1).to eq 1
   end
+
+  it 'can be sunk' do
+    @ship.size 1
+    @ship.hit
+    expect(@ship).to be_destroyed
+  end
+
+  it 'is not sunk initially' do
+    @ship.size 1
+    expect(@ship).not_to be_destroyed
+  end
 end
+
