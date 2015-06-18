@@ -10,7 +10,9 @@ class Board
     @misses = []
   end
 
-  def place ship
+  def place 
+
+    ship
     @ship_array << ship
   end
 
